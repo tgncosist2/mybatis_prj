@@ -29,7 +29,9 @@ public class HelloMyBatis {
 				int cnt = ss.selectOne("kr.co.sist.hello.webMemberCnt");
 				System.out.println(cnt + "건");
 				
-				List<Dept> dept = ss.selectList("kr.co.sist.hello.selectAllDept");
+				// MyBatis Handler(ss)가 namespace와 id명을 결합하여 node를 찾고 parsing
+//				List<Dept> dept = ss.selectList("kr.co.sist.hello.selectAllDept");
+				List<Dept> dept = ss.selectList("selectAllDept");
 				for (Dept item : dept) {
 					System.out.println(item.getDeptno() + "/" + item.getDname() + "/" + item.getLoc());
 				}// end for
