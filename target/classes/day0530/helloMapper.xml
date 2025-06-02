@@ -9,8 +9,11 @@
 	<select id="selectAllDept" resultType="day0530.Dept">
 		SELECT DEPTNO, DNAME, LOC FROM DEPT
 	</select>
+	<select id="selectAllTestLike" resultType="day0530.TestLikeDTO">
+		SELECT * FROM TEST_LIKE
+	</select>
 	<insert id="insertTestLike">
-		INSERT INTO TEST_LIKE(NAME, ADDR, EMAIL)
-		VALUES(#{name}, #{addr}, #{email});
+		INSERT INTO TEST_LIKE
+		VALUES(#{name}, #{addr}, #{email})
 	</insert>
 </mapper>

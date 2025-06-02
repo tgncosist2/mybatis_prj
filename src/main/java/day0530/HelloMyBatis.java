@@ -13,6 +13,12 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class HelloMyBatis {
 	
+	public HelloMyBatis() {
+		// 로그를 사용
+		
+		org.apache.ibatis.logging.LogFactory.useLog4J2Logging();
+	}
+	
 	public void useMyBatis() {
 				SqlSession ss = MyBatisSingleton.getSession();
 
@@ -26,7 +32,22 @@ public class HelloMyBatis {
 				for (Dept item : dept) {
 					System.out.println(item.getDeptno() + "/" + item.getDname() + "/" + item.getLoc());
 				}// end for
-		
+				
+				TestLikeDTO tlDTO = new TestLikeDTO();
+				tlDTO.setName("강태일");
+				tlDTO.setAddr("제주시 애월읍 하소로");
+				tlDTO.setEmail("test@test.kr");
+				
+				ss.insert("insertTestLike",tlDTO);
+				
+				List<TestLikeDTO> list = ss.selectList("selectAllTestLike");
+				
+				
+				for (TestLikeDTO item : list) {
+					System.out.println(item.toString());
+				}
+				
+				
 	}// useMyBatis
 	
 	public static void main(String[] args) {

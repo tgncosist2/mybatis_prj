@@ -24,7 +24,7 @@ public class MyBatisSingleton {
 		if (ssf == null) {
 	        throw new IllegalStateException("SqlSessionFactory 생성 실패!");
 	    }
-		return ssf.openSession();
+		return ssf.openSession(true);
 	}
 	
 }// class
