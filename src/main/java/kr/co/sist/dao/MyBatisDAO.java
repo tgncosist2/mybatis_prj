@@ -35,7 +35,7 @@ public class MyBatisDAO {
 		return mbDAO;
 	}// getInstance	
 	
-	private SqlSessionFactory getSqlSessionFactory(boolean autoCommitFlag) {
+	private SqlSessionFactory getSqlSessionFactory() {
 		if (ssf == null ) {
 			try {
 				// 1. 설정파일(mybatis-config.xml)과 스트림으로 연결
@@ -58,7 +58,7 @@ public class MyBatisDAO {
 	 * @return
 	 */
 	public SqlSession getMyBatisHandler(boolean autoCommitFlag) {
-		SqlSession ss = getSqlSessionFactory(autoCommitFlag).openSession(autoCommitFlag); 
+		SqlSession ss = getSqlSessionFactory().openSession(autoCommitFlag); 
 		
 		return ss;
 	}// getMyBatisHandler
@@ -68,7 +68,7 @@ public class MyBatisDAO {
 	 * @return
 	 */
 	public SqlSession getMyBatisHandler() {
-		SqlSession ss = getSqlSessionFactory(false).openSession(false); 
+		SqlSession ss = getSqlSessionFactory().openSession(); 
 		
 		return ss;
 	}// getMyBatisHandler

@@ -9,4 +9,20 @@
 	<insert id="insertDept" parameterType="day0530.Dept">
 		INSERT INTO ${tableName} VALUES(#{deptno}, #{dname}, #{loc})
 	</insert>
+	<!-- insert 외부 값 없이 추가 : parameterType 속성을 사용하지 않는다. -->
+	<insert id="insertCpEmp7">
+		INSERT INTO CP_EMP7(EMPNO, ENAME, JOB, SAL, COMM, HIREDATE)
+		VALUES(SEQ_BOARD.NEXTVAL, '강태일','야호',4564,100,SYSDATE)
+	</insert>
+	<!-- insert 단일형 추가 
+	java에서 사용하는 모든 데이터형을 직접 사용할 수 있다. -->
+	<insert id="insertCpEmp7Single" parameterType="int">
+		INSERT INTO CP_EMP7(EMPNO, ENAME, JOB, SAL, COMM, HIREDATE)
+		VALUES(SEQ_BOARD.NEXTVAL, '강태일','야호',${sal},100,SYSDATE)
+	</insert>
+	<!-- insert 복수형 추가 -->
+	<insert id="insertCpEmp7DTO" parameterType="day0602.CpEmpDTO">
+		INSERT INTO CP_EMP7(EMPNO, ENAME, JOB, SAL, COMM)
+		VALUES(#{empno}, #{ename}, #{job}, #{sal}, #{comm})
+	</insert>
 </mapper>
