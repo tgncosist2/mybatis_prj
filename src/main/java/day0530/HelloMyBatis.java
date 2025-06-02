@@ -15,8 +15,7 @@ public class HelloMyBatis {
 	
 	public HelloMyBatis() {
 		// 로그를 사용
-		
-		org.apache.ibatis.logging.LogFactory.useLog4J2Logging();
+//		org.apache.ibatis.logging.LogFactory.useLog4J2Logging();
 	}
 	
 	public void useMyBatis() {

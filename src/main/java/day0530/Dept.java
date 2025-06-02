@@ -12,6 +12,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Dept {
+	private String tableName;
 	private int deptno;
 	private String dname;
 	private String loc;
