@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="kr.co.sist.domain.CpEmp"%>
 <%@page import="day0605.SelectService2"%>
 <%@page import="day0604.SelectService"%>
@@ -14,43 +15,44 @@ $(function() {
 </script>
 <style>
 input {
-text-align: center;
+	text-align: center;
 }
 </style>
-<h2>컬럼 여러개에 한 행 조회</h2>
+<h2>컬럼 여러개에 여러 행 조회</h2>
 <div>
 	<form action="index.jsp" id="frm">
-		<h3>사원번호를 입력받아 사원정보 검색</h3>
-		<input type="hidden" name="url" value="${param.url }" /> <label>사원번호</label>
-		<input type="text" name="empno" /> <input type="button" value="검색"
+		<h3>부서번호를 입력받아 사원정보들 검색</h3>
+		<input type="hidden" name="url" value="${param.url }" /> <label>부서번호</label>
+		<input type="text" name="deptno" /> <input type="button" value="검색"
 			class="btn btn-success btn-sm" id="btn" />
 	</form>
 </div>
 <div>
 	<c:choose>
-		<c:when test="${ not empty param.empno }">
+		<c:when test="${ not empty param.deptno }">
 			<%
 			SelectService2 ss2 = new SelectService2();
 
-			CpEmp ce = null;
+			List<CpEmp> list = null;
 			String msg = "";
 			try {
-				ce = ss2.mcsrService(Integer.parseInt(request.getParameter("empno")));
-				msg = ce == null ? "조회 실패" : "조회 완료";
+				list = ss2.mcmrService(Integer.parseInt(request.getParameter("deptno")));
+				msg = list == null ? "조회 실패" : "조회 완료";
 			} catch (NumberFormatException nfe) {
-				msg = "사원번호는 숫자를 입력해주세요.";
+				msg = "부서번호는 숫자를 입력해주세요.";
 			} // end try-catch
 
 			pageContext.setAttribute("msg", msg);
-			pageContext.setAttribute("ce", ce);
+			pageContext.setAttribute("list", list);
 			%>
 			<c:out value="${msg }" />
 		</c:when>
 		<c:otherwise>
-사원번호를 입력해주세요.
+부서번호를 입력해주세요.
 </c:otherwise>
 	</c:choose>
-	<table class="table table-bordered" style="width: 750px; margin-right: 10px;">
+	<table class="table table-bordered"
+		style="width: 750px; margin-right: 10px;">
 		<thead>
 			<tr style="text-align: center;">
 				<th style="width: 100px;">사원번호</th>
@@ -63,20 +65,23 @@ text-align: center;
 		</thead>
 		<tbody>
 			<c:choose>
-				<c:when test="${empty ce }">
+				<c:when test="${empty list }">
 					<tr>
-						<td colspan="6">데이터가 없습니다.</td>
+						<td colspan="5">${param.deptno }번 부서 데이터가 없습니다.</td>
 					</tr>
 				</c:when>
 				<c:otherwise>
-					<tr style="">
-						<td><input type="text" value="${ce.empno }" readonly="readonly" style="width: 100%;"/></td>
-						<td><input type="text" value="${ce.ename }" style="width: 100%;"/></td>
-						<td><input type="text" value="${ce.job }" style="width: 100%;"/></td>
-						<td><input type="text" value="${ce.sal }" style="width: 100%;"/></td>
-						<td><input type="text" value="${ce.comm }" style="width: 100%;"/></td>
-						<td><input type="text" value="${ce.hiredate }" readonly="readonly" style="width: 100%;"/></td>
-					</tr>
+				<tr><td colspan="5"><h2><c:out value="${param.deptno }"/>번 부서</h2></td></tr>
+					<c:forEach var="list" items="${list }" varStatus="i">
+						<tr>
+							<td><c:out value="${list.empno}"/></td>
+							<td><c:out value="${list.ename }"/></td>
+							<td><c:out value="${list.job }"/></td>
+							<td><c:out value="${list.sal }"/></td>
+							<td><c:out value="${list.comm }"/></td>
+							<td><fmt:formatDate pattern="" value=""/></td>
+						</tr>
+					</c:forEach>
 				</c:otherwise>
 			</c:choose>
 		</tbody>

@@ -14,6 +14,29 @@ public class SelectService2 {
 		return ce;
 	}// scsrService
 	
-
+	public List<CpEmp> mcmrService(int deptno) {
+		List<CpEmp> list = null;
+		
+		list = SelectDAO2.getInstance().mcmr(deptno);
+		
+		return list;
+	}// scsrService
+	
+	public List<CpEmp> lessThanService(int sal) {
+		List<CpEmp> list = null;
+		
+		list = SelectDAO2.getInstance().lessThan(sal);
+		
+		return list;
+	}// scsrService
+	
+	public List<CpEmp> greaterThanService(int sal) {
+		List<CpEmp> list = null;
+		
+		list = SelectDAO2.getInstance().greaterThan(sal);
+		
+		return list;
+	}// scsrService
+	
 	
 }// class

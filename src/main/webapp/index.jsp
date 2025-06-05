@@ -30,8 +30,8 @@
 		<div id="container">
 			<div id="mybatisTitle">
 			<%
-				String[] linkNames = {"컬럼하나 한행조회", "컬럼하나 여러행조회", "컬럼여러개 한행조회","컬럼여러개 여러행조회"};
-				String[] links = {"day0604/scsr","day0604/scmr","day0605/mcsr","day0605/mcmr"};
+				String[] linkNames = {"컬럼하나 한행조회", "컬럼하나 여러행조회", "컬럼여러개 한행조회","컬럼여러개 여러행조회","< 조회","> 조회"};
+				String[] links = {"day0604/scsr","day0604/scmr","day0605/mcsr","day0605/mcmr","day0605/lt","day0605/gt"};
 			%>
 			<table class="table table-hover">
 					<tr>

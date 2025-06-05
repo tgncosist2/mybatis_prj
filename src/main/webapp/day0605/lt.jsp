@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="kr.co.sist.domain.CpEmp"%>
 <%@page import="day0605.SelectService2"%>
 <%@page import="day0604.SelectService"%>
@@ -17,37 +18,37 @@ input {
 text-align: center;
 }
 </style>
-<h2>컬럼 여러개에 한 행 조회</h2>
+<h2>작다의 조회</h2>
 <div>
 	<form action="index.jsp" id="frm">
-		<h3>사원번호를 입력받아 사원정보 검색</h3>
-		<input type="hidden" name="url" value="${param.url }" /> <label>사원번호</label>
-		<input type="text" name="empno" /> <input type="button" value="검색"
+		<h3>입력된 연봉보다 적은 연봉을 수령하는 사원정보를 검색</h3>
+		<input type="hidden" name="url" value="${param.url }" /> <label>연봉</label>
+		<input type="text" name="sal" /> <input type="button" value="검색"
 			class="btn btn-success btn-sm" id="btn" />
 	</form>
 </div>
 <div>
 	<c:choose>
-		<c:when test="${ not empty param.empno }">
+		<c:when test="${ not empty param.sal }">
 			<%
 			SelectService2 ss2 = new SelectService2();
 
-			CpEmp ce = null;
+			List<CpEmp> list = null;
 			String msg = "";
 			try {
-				ce = ss2.mcsrService(Integer.parseInt(request.getParameter("empno")));
-				msg = ce == null ? "조회 실패" : "조회 완료";
+				list = ss2.lessThanService(Integer.parseInt(request.getParameter("sal")));
+				msg = list == null ? "조회 실패" : "조회 완료";
 			} catch (NumberFormatException nfe) {
 				msg = "사원번호는 숫자를 입력해주세요.";
 			} // end try-catch
 
 			pageContext.setAttribute("msg", msg);
-			pageContext.setAttribute("ce", ce);
+			pageContext.setAttribute("list", list);
 			%>
 			<c:out value="${msg }" />
 		</c:when>
 		<c:otherwise>
-사원번호를 입력해주세요.
+연봉을 입력해주세요.
 </c:otherwise>
 	</c:choose>
 	<table class="table table-bordered" style="width: 750px; margin-right: 10px;">
@@ -63,20 +64,23 @@ text-align: center;
 		</thead>
 		<tbody>
 			<c:choose>
-				<c:when test="${empty ce }">
+				<c:when test="${empty list }">
 					<tr>
 						<td colspan="6">데이터가 없습니다.</td>
 					</tr>
 				</c:when>
 				<c:otherwise>
-					<tr style="">
-						<td><input type="text" value="${ce.empno }" readonly="readonly" style="width: 100%;"/></td>
-						<td><input type="text" value="${ce.ename }" style="width: 100%;"/></td>
-						<td><input type="text" value="${ce.job }" style="width: 100%;"/></td>
-						<td><input type="text" value="${ce.sal }" style="width: 100%;"/></td>
-						<td><input type="text" value="${ce.comm }" style="width: 100%;"/></td>
-						<td><input type="text" value="${ce.hiredate }" readonly="readonly" style="width: 100%;"/></td>
-					</tr>
+					<c:forEach var="list" items="${list }" varStatus="i">
+						<tr style="">
+							<td><input type="text" value="${list.empno }" readonly="readonly" style="width: 100%;"/></td>
+							<td><input type="text" value="${list.ename }" style="width: 100%;"/></td>
+							<td><input type="text" value="${list.job }" style="width: 100%;"/></td>
+							<td><input type="text" value="${list.sal }" style="width: 100%;"/></td>
+							<td><input type="text" value="${list.comm }" style="width: 100%;"/></td>
+							<td><input type="text" value="${list.hiredate }" readonly="readonly" style="width: 100%;"/></td>
+						</tr>
+					</c:forEach>
+				
 				</c:otherwise>
 			</c:choose>
 		</tbody>
