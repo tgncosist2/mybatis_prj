@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.day0604">
+<!-- 컬럼 하나에 한행 조회 -->
+<select id="scsr" parameterType="int" resultType="String">
+	SELECT ENAME
+	FROM EMP
+	WHERE EMPNO= #{empno}
+</select>
+
+<!-- 컬럼 하나에 여러행 조회 -->
+<!-- 사원 테이블에서 모든 부서번호를 검색 -->
+<select id="scmr" resultType="Integer">
+	SELECT DISTINCT DEPTNO
+	FROM EMP
+	ORDER BY DEPTNO
+</select>
+
+<!-- 컬럼 여러개에 한행 조회 -->
+<select id="mcsr" parameterType="int" resultType="CpEmpDomain">
+	SELECT EMPNO, SAL, COMM, ENAME, JOB, HIREDATE
+	FROM EMP
+	WHERE EMPNO = #{empno}
+</select>
+
+<!-- 컬럼 여러개에 여러행 조회 -->
+
+<!-- WHERE절 > 조회 -->
+
+<!-- WHERE절 < 조회 -->
+
+<!-- WHERE절 LIKE 조회 -->
+
+<!-- subquery -->
+
+<!-- union -->
+
+<!-- join -->
+
+<!-- subquery-join -->
+
+<!-- dynamic query OGNL -->
+
+<!-- $ 사용 -->
+
+</mapper>

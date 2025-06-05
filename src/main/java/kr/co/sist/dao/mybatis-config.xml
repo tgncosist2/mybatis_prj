@@ -4,6 +4,10 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 <properties resource="properties/database.properties"/><!-- 프로퍼티 호출 -->
+<typeAliases>
+	<typeAlias type="kr.co.sist.domain.CpEmp" alias="CpEmpDomain"/>
+	<typeAlias type="day0602.CpEmpDTO" alias="CpEmpDTO"/>
+</typeAliases>
   <environments default="development">
     <environment id="development">
       <transactionManager type="JDBC"/>
@@ -17,5 +21,8 @@
   </environments>
   <mappers>
   	<mapper resource="day0602/examMapper.xml"/>
+  	<mapper resource="day0604/examMapper2.xml"/>
+  	<mapper resource="day0604/selectMapper.xml"/>
+  	<mapper resource="day0605/selectMapper2.xml"/>
   </mappers>
 </configuration>

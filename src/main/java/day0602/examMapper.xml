@@ -25,4 +25,8 @@
 		INSERT INTO CP_EMP7(EMPNO, ENAME, JOB, SAL, COMM)
 		VALUES(#{empno}, #{ename}, #{job}, #{sal}, #{comm})
 	</insert>
+	<update id="updateCpEmp7DTO" parameterType="String">
+		UPDATE CP_EMP7 SET ENAME = #{name}
+		WHERE EMPNO = 6075
+	</update>
 </mapper>
