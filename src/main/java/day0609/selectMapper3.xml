@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.sist.day0609">
+
+<!-- where 절 like 조회 
+	동이름을 입력받아 우편번호,주소(시도,구군,동,번지)를 검색
+-->
+<resultMap type="zipcodeDomain" id="zdResult">
+<result column="ZIPCODE" property="zipcode"/>
+<result column="SIDO" property="sido"/>
+<result column="GUGUN" property="gugun"/>
+<result column="DONG" property="dong"/>
+<result column="BUNJI" property="bunji"/>
+<result column="SEQ" property="seq"/>
+</resultMap>
+
+<select id="like" resultMap="zdResult" parameterType="String">
+SELECT *
+FROM ZIPCODE
+WHERE DONG LIKE #{dong}||'%'
+</select>
+
+<!-- subquery -->
+<!-- union -->
+<!-- join -->
+<!-- subquery-join -->
+
+<!-- dynamic query OGNL -->
+</mapper>
