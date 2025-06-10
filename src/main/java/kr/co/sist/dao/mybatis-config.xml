@@ -8,6 +8,8 @@
 	<typeAlias type="kr.co.sist.domain.CpEmp" alias="CpEmpDomain"/>
 	<typeAlias type="day0602.CpEmpDTO" alias="CpEmpDTO"/>
 	<typeAlias type="kr.co.sist.domain.Zipcode" alias="zipcodeDomain"/>
+	<typeAlias type="kr.co.sist.domain.Area" alias="areaDomain"/>
+	<typeAlias type="kr.co.sist.domain.Car" alias="carDomain"/>
 </typeAliases>
   <environments default="development">
     <environment id="development">
@@ -26,5 +28,6 @@
   	<mapper resource="day0604/selectMapper.xml"/>
   	<mapper resource="day0605/selectMapper2.xml"/>
   	<mapper resource="day0609/selectMapper3.xml"/>
+  	<mapper resource="day0610/selectMapper4.xml"/>
   </mappers>
 </configuration>

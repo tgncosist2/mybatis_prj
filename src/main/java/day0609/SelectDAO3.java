@@ -22,30 +22,6 @@ public class SelectDAO3 {
 		return sDAO;
 	}//getInstance
 	
-	/**
-	 * 컬럼 하나에 행 하나 검색 : 사원번호를 입력받아 사원명을 검색
-	 * @param empno
-	 * @return
-	 */
-	public CpEmp mcsr (int empno) {
-		CpEmp ceDomain=null;
-		//1. MyBatis Handler  얻기
-		SqlSession ss= MyBatisDAO.getInstance("kr/co/sist/dao/mybatis-config.xml")
-		.getMyBatisHandler(); //auto commit 안됨
-		
-		//2. 쿼리를 실행
-		ceDomain=ss.selectOne("kr.co.sist.day0605.mcsr",empno);
-
-				
-		//4. MyBatis Handler 닫기
-		ss.close();
-		return ceDomain;
-	}//selectOne
-	
-	/**
-	 * 컬럼 하나에 여러행 조회
-	 * @return
-	 */
 	public List<Zipcode> like(String dong) {
 		List<Zipcode> list = null;
 		//1. MyBatis Handler  얻기
@@ -60,6 +36,21 @@ public class SelectDAO3 {
 		ss.close();
 		
 		return list;
-	}
+	}// like
 
+	public List<CpEmp> subquery() {
+		List<CpEmp> list = null;
+		//1. MyBatis Handler  얻기
+		SqlSession ss= MyBatisDAO.getInstance("kr/co/sist/dao/mybatis-config.xml")
+				.getMyBatisHandler(); //auto commit 안됨
+		
+		//2. 쿼리를 실행 <select id="scmr" resultType="int"> parameterType 속성이
+		//사용되지 않으므로, 매개변수가 하나인 selectList()를 호출한다.
+		list=ss.selectList("kr.co.sist.day0609.subquery");
+		
+		//4. MyBatis Handler 닫기
+		ss.close();
+		
+		return list;
+	}// like
 }//class

@@ -16,6 +16,12 @@
 <result column="BUNJI" property="bunji"/>
 <result column="SEQ" property="seq"/>
 </resultMap>
+<resultMap type="areaDomain" id="adResult">
+<result column="AREA_NUM" property="area_num"/>
+<result column="NAME" property="name"/>
+<result column="ROUTE" property="route"/>
+</resultMap>
+
 
 <select id="like" resultMap="zdResult" parameterType="String">
 SELECT *
@@ -24,7 +30,16 @@ WHERE DONG LIKE #{dong}||'%'
 </select>
 
 <!-- subquery -->
+<select id="subquery" resultType="CpEmpDomain">
+SELECT EMPNO, ENAME, HIREDATE, COMM, JOB
+FROM (SELECT EMPNO, ENAME, HIREDATE, SAL, COMM, JOB, ROW_NUMBER() OVER(ORDER BY HIREDATE DESC) RNUM FROM EMP)
+WHERE RNUM BETWEEN 1 AND 10
+</select>
+
 <!-- union -->
+<select id="union" resultMap="adResult" parameterType="int">
+
+</select>
 <!-- join -->
 <!-- subquery-join -->
 

@@ -8,7 +8,7 @@ import java.sql.Date;
 //@ToString
 public class CpEmp {
 
-	private int empno, sal, comm;
+	private int empno, sal, comm, deptno;
 	private String ename, job, hiredateStr;
 	private Date hiredate;
 
@@ -24,8 +24,8 @@ public class CpEmp {
 		this.job = job;
 		this.hiredateStr = hiredateStr;
 		this.hiredate = hiredate;
+		this.deptno = deptno;
 		
-		System.out.println("CpEmp의 인자생성자");
 	}// CpEmp
 
 	public int getEmpno() {
@@ -33,8 +33,15 @@ public class CpEmp {
 	}
 
 	public void setEmpno(int empno) {
-		System.out.println("setter Empno 불려요~");
 		this.empno = empno;
+	}
+
+	public int getDeptno() {
+		return deptno;
+	}
+
+	public void setDeptno(int deptno) {
+		this.deptno = deptno;
 	}
 
 	public int getSal() {
@@ -42,7 +49,6 @@ public class CpEmp {
 	}
 
 	public void setSal(int sal) {
-		System.out.println("setter Sal 불려요~");
 		this.sal = sal;
 	}
 
@@ -51,7 +57,6 @@ public class CpEmp {
 	}
 
 	public void setComm(int comm) {
-		System.out.println("setter Comm 불려요~");
 		this.comm = comm;
 	}
 

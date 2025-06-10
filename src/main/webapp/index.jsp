@@ -32,9 +32,9 @@ $(function(){
 <div id="mybatisTitle">
 <%
 	String[] linkName={"컬럼하나 한행조회","컬럼한개 여러행조회", "컬럼여러개 한행조회",
-			"컬럼여러개 여러행조회","< 조회", "> 조회","like조회","subquery","union"};
+			"컬럼여러개 여러행조회","< 조회", "> 조회","like조회","subquery","union","join"};
 	String[] link={"day0604/scsr", "day0604/scmr", "day0605/mcsr", "day0605/mcmr",
-				"day0605/lt", "day0605/gt","day0609/like","day0609/subquery","day0609/union"};
+				"day0605/lt", "day0605/gt","day0609/like","day0609/subquery","day0610/union","day0610/join"};
 %>
 <table class="table table-hover">
 <tr>
