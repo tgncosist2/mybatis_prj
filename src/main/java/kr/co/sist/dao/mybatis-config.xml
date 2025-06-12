@@ -29,5 +29,6 @@
   	<mapper resource="day0605/selectMapper2.xml"/>
   	<mapper resource="day0609/selectMapper3.xml"/>
   	<mapper resource="day0610/selectMapper4.xml"/>
+  	<mapper resource="day0612/selectMapper5.xml"/>
   </mappers>
 </configuration>

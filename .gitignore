@@ -1,2 +1,3 @@
 *.properties
 /target/
+/src/main/webapp/captchaTest/

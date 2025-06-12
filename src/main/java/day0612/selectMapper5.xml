@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="kr.co.sist.day0612">
+<!-- 모든 제조사를 조회할 거에요 -->
+<select id="selectAllMaker" resultType="String">
+SELECT MAKER FROM CAR_COUNTRY
+</select>
+
+<!-- subquery-join -->
+<select id="join_subquery" resultType="carDomain" parameterType="String">
+SELECT MODEL, CAR_YEAR, PRICE, CC, nvl(CAR_IMG,'default.jpeg') CAR_IMG, NVL(HIREDATE,SYSDATE) HIREDATE
+FROM (SELECT CMAK.MODEL, CMOD.CAR_YEAR, CMOD.PRICE, CMOD.CC, CMOD.CAR_IMG, CMOD.HIREDATE, ROW_NUMBER() OVER(ORDER BY CMOD.HIREDATE DESC) RNUM
+			FROM CAR_MAKER CMAK, CAR_MODEL CMOD
+			WHERE ( CMOD.MODEL(+) = CMAK.MODEL ) AND CMAK.MAKER = #{model})
+WHERE RNUM BETWEEN 1 AND 5
+</select>
+
+<!-- dynamic query OGNL -->
+</mapper>
