@@ -10,6 +10,10 @@
 	<typeAlias type="kr.co.sist.domain.Zipcode" alias="zipcodeDomain"/>
 	<typeAlias type="kr.co.sist.domain.Area" alias="areaDomain"/>
 	<typeAlias type="kr.co.sist.domain.Car" alias="carDomain"/>
+	<typeAlias type="kr.co.sist.domain.CpEmp2" alias="cpEmpDomain2"/>
+	<typeAlias type="day0612.WhereDTO" alias="wDTO"/>
+	<typeAlias type="day0612.RangeDTO" alias="rDTO"/>
+	<typeAlias type="kr.co.sist.board.BoardDTO" alias="boardDTO"/>
 </typeAliases>
   <environments default="development">
     <environment id="development">
@@ -29,6 +33,7 @@
   	<mapper resource="day0605/selectMapper2.xml"/>
   	<mapper resource="day0609/selectMapper3.xml"/>
   	<mapper resource="day0610/selectMapper4.xml"/>
-  	<mapper resource="day0612/selectMapper5.xml"/>
+  	<mapper resource="day0612/selectMapper5.xml"/> <!-- 이거 추가 -->
+  	<mapper resource="kr/co/sist/board/boardMapper.xml"/> <!-- 이거 추가 -->
   </mappers>
 </configuration>

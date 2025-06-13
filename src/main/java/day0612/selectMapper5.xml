@@ -20,4 +20,28 @@ WHERE RNUM BETWEEN 1 AND 5
 </select>
 
 <!-- dynamic query OGNL -->
+<!-- $사용 : 테이블명이나 컬럼명이 동적일 때 $를 사용하면 값이 쿼리문에 직접 생성된다. -->
+<!-- 본사(emp), 지사(cp_emp7)를 선택하면 사원정보를 검색 -->
+<!-- EMPNO, SAL, COMM, ENAME, JOB, HIREDATE -->
+<select id="dollarSign" resultType="CpEmpDomain" parameterType="String">
+SELECT EMPNO, SAL, COMM, ENAME, JOB, HIREDATE
+FROM ${tableName}
+</select>
+
+<select id="dynamicIf" resultType="cpEmpDomain2" parameterType="wDTO">
+select empno, sal, comm, deptno, ename, job, hiredate from emp
+<where>
+<if test="deptno neq 0"> deptno=#{deptno} </if>
+</where>
+</select>
+
+<select id="rDTOTest" resultType="Integer" parameterType="rDTO">
+SELECT COUNT(NUM) CNT
+FROM BOARD
+<where>
+<if test="keyword != null">
+INSTR(${field}, #{keyword}) != 0
+</if>
+</where>
+</select>
 </mapper>
