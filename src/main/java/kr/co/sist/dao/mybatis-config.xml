@@ -14,6 +14,7 @@
 	<typeAlias type="day0612.WhereDTO" alias="wDTO"/>
 	<typeAlias type="day0612.RangeDTO" alias="rDTO"/>
 	<typeAlias type="kr.co.sist.board.BoardDTO" alias="boardDTO"/>
+	<typeAlias type="day0613.TransactionDTO" alias="tDTO"/>
 </typeAliases>
   <environments default="development">
     <environment id="development">
@@ -35,5 +36,6 @@
   	<mapper resource="day0610/selectMapper4.xml"/>
   	<mapper resource="day0612/selectMapper5.xml"/> <!-- 이거 추가 -->
   	<mapper resource="kr/co/sist/board/boardMapper.xml"/> <!-- 이거 추가 -->
+  	<mapper resource="day0613/selectMapper6.xml"/>
   </mappers>
 </configuration>
