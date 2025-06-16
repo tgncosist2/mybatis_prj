@@ -34,14 +34,4 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
-	<filteredResources>
-		<filter>
-			<id>1748572272891</id>
-			<name>src/test</name>
-			<type>6</type>
-			<matcher>
-				<id>org.eclipse.ui.ide.multiFilter</id>
-			</matcher>
-		</filter>
-	</filteredResources>
 </projectDescription>

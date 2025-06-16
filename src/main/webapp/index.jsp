@@ -30,9 +30,9 @@ $(function(){
 <div id="mybatisTitle">
 <%
 	String[] linkName={"컬럼하나 한행조회","컬럼한개 여러행조회", "컬럼여러개 한행조회",
-			"컬럼여러개 여러행조회","< 조회", "> 조회","like조회","subquery","union","join","join_subquery","동적인테이블","동적쿼리-if","동적쿼리-choose","동적쿼리-foreach","동적쿼리-set","트랜잭션처리"};
+			"컬럼여러개 여러행조회","< 조회", "> 조회","like조회","subquery","union","join","join_subquery","동적인테이블","동적쿼리-if","동적쿼리-choose","동적쿼리-foreach","동적쿼리-set","트랜잭션처리","procedure-insert","procedure-select"};
 	String[] link={"day0604/scsr", "day0604/scmr", "day0605/mcsr", "day0605/mcmr",
-				"day0605/lt", "day0605/gt","day0609/like","day0609/subquery","day0610/union","day0610/join","day0612/join_subquery","day0612/dollar_sign","day0612/dynamic_if","day0613/dynamic_choose","day0613/dynamic_foreach","day0613/dynamic_set","day0613/transaction"};
+				"day0605/lt", "day0605/gt","day0609/like","day0609/subquery","day0610/union","day0610/join","day0612/join_subquery","day0612/dollar_sign","day0612/dynamic_if","day0613/dynamic_choose","day0613/dynamic_foreach","day0613/dynamic_set","day0613/transaction","day0616/procedure-insert","day0616/procedure-select"};
 %>
 <table class="table table-hover">
 <tr>

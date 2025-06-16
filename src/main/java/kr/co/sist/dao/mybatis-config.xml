@@ -15,6 +15,8 @@
 	<typeAlias type="day0612.RangeDTO" alias="rDTO"/>
 	<typeAlias type="kr.co.sist.board.BoardDTO" alias="boardDTO"/>
 	<typeAlias type="day0613.TransactionDTO" alias="tDTO"/>
+	<typeAlias type="day0616.CpEmp6DTO" alias="ceDTO"/>
+	<typeAlias type="day0616.CarDomain" alias="proCar"/>
 </typeAliases>
   <environments default="development">
     <environment id="development">
@@ -28,14 +30,15 @@
     </environment>
   </environments>
   <mappers>
-  	<mapper resource="day0602/examMapper.xml"/>
+	<mapper resource="day0602/examMapper.xml"/>
   	<mapper resource="day0604/examMapper2.xml"/>
   	<mapper resource="day0604/selectMapper.xml"/>
   	<mapper resource="day0605/selectMapper2.xml"/>
   	<mapper resource="day0609/selectMapper3.xml"/>
   	<mapper resource="day0610/selectMapper4.xml"/>
-  	<mapper resource="day0612/selectMapper5.xml"/> <!-- 이거 추가 -->
-  	<mapper resource="kr/co/sist/board/boardMapper.xml"/> <!-- 이거 추가 -->
+  	<mapper resource="day0612/selectMapper5.xml"/>
+  	<mapper resource="kr/co/sist/board/boardMapper.xml"/>
   	<mapper resource="day0613/selectMapper6.xml"/>
+  	<mapper resource="day0616/selectMapper7.xml"/>
   </mappers>
 </configuration>
